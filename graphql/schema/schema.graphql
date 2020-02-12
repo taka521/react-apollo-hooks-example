@@ -1,11 +1,11 @@
 # Represents a Pokémon's attack types
 type Attack {
   # The name of this Pokémon attack
-  name: String
+  name: String!
   # The type of this Pokémon attack
-  type: String
+  type: String!
   # The damage of this Pokémon attack
-  damage: Int
+  damage: Int!
 }
 
 # Represents a Pokémon
@@ -13,63 +13,62 @@ type Pokemon {
   # The ID of an object
   id: ID!
   # The identifier of this Pokémon
-  number: String
+  number: String!
   # The name of this Pokémon
-  name: String
+  name: String!
   # The minimum and maximum weight of this Pokémon
-  weight: PokemonDimension
+  weight: PokemonDimension!
   # The minimum and maximum weight of this Pokémon
-  height: PokemonDimension
+  height: PokemonDimension!
   # The classification of this Pokémon
-  classification: String
+  classification: String!
   # The type(s) of this Pokémon
-  types: [String]
+  types: [String!]!
   # The type(s) of Pokémons that this Pokémon is resistant to
-  resistant: [String]
+  resistant: [String!]
   # The attacks of this Pokémon
-  attacks: PokemonAttack
+  attacks: PokemonAttack!
   # The type(s) of Pokémons that this Pokémon weak to
-  weaknesses: [String]
-  fleeRate: Float
+  weaknesses: [String!]
+  fleeRate: Float!
   # The maximum CP of this Pokémon
-  maxCP: Int
+  maxCP: Int!
   # The evolutions of this Pokémon
-  evolutions: [Pokemon]
+  evolutions: [Pokemon!]
   # The evolution requirements of this Pokémon
-  evolutionRequirements: PokemonEvolutionRequirement
+  evolutionRequirements: PokemonEvolutionRequirement!
   # The maximum HP of this Pokémon
-  maxHP: Int
-  image: String
+  maxHP: Int!
+  image: String!
 }
 
 # Represents a Pokémon's attack types
 type PokemonAttack {
   # The fast attacks of this Pokémon
-  fast: [Attack]
+  fast: [Attack!]
   # The special attacks of this Pokémon
-  special: [Attack]
+  special: [Attack!]
 }
 
 # Represents a Pokémon's dimensions
 type PokemonDimension {
   # The minimum value of this dimension
-  minimum: String
+  minimum: String!
   # The maximum value of this dimension
-  maximum: String
+  maximum: String!
 }
 
 # Represents a Pokémon's requirement to evolve
 type PokemonEvolutionRequirement {
   # The amount of candy to evolve
-  amount: Int
+  amount: Int!
   # The name of the candy to evolve
-  name: String
+  name: String!
 }
 
 # Query any Pokémon by number or name
 type Query {
   query: Query
-  pokemons(first: Int!): [Pokemon]
-  pokemon(id: String, name: String): Pokemon
+  pokemons(first: Int!): [Pokemon!]
+  pokemon(id: String, name: String): Pokemon!
 }
-

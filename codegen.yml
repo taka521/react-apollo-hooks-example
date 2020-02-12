@@ -1,0 +1,25 @@
+# 既存ファイルが存在する場合に上書きするか
+overwrite: true
+# スキーマが定義されているエンドポイントや、*.graphqlへのファイルパス
+schema:
+  - ./graphql/schema/schema.graphql
+config:
+  withHooks: true
+  withComponent: false
+  withHOC: false
+generates:
+  ./src/hooks/pokemon/query.ts:
+    documents: ./graphql/queries/pokemon.query.graphql
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+hooks:
+  afterOneFileWrite:
+    - yarn eslint --fix
+  # ./src/hooks/pokemon/mutation.ts:
+  #   documents: ./graphql/mutations/pokemon.mutation.graphql
+  #   plugins:
+  #     - "typescript"
+  #     - "typescript-operations"
+  #     - "typescript-react-apollo"

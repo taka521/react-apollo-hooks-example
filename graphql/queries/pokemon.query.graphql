@@ -1,0 +1,17 @@
+query fetchPokemons($first: Int!) {
+  pokemons(first: $first) {
+    id
+    number
+    name
+    types
+    attacks {
+      fast {
+        name
+      }
+      special {
+        name
+      }
+    }
+    image
+  }
+}

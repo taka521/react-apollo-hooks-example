@@ -8,7 +8,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 
 const client = new ApolloClient({
-  uri: process.env.GRAPHQL_SERVER_ENDPOINT
+  uri: "https://graphql-pokemon.now.sh"
 });
 
 ReactDOM.render(
