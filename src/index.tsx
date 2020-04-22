@@ -5,11 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import { ApolloProvider } from "@apollo/react-hooks";
-import ApolloClient from "apollo-boost";
-
-const client = new ApolloClient({
-  uri: "https://graphql-pokemon.now.sh"
-});
+import { client } from "./config/apolloClient";
 
 ReactDOM.render(
   <ApolloProvider client={client}>
