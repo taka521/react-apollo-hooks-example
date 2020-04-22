@@ -7,19 +7,21 @@ config:
   withHooks: true
   withComponent: false
   withHOC: false
+  typesPrefix: I
+  scalars:
+    Date: Date
+  immutableTypes: true
 generates:
-  ./src/hooks/pokemon/query.ts:
-    documents: ./graphql/queries/pokemon.query.graphql
+  ./src/codegen.d.ts:
     plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-react-apollo"
+      - typescript:
+          noExport: true
+          constEnums: true
+  ./src/hooks/user/query.ts:
+    documents: ./graphql/queries/user.query.graphql
+    plugins:
+      - typescript-operations
+      - typescript-react-apollo
 hooks:
   afterOneFileWrite:
     - yarn eslint --fix
-  # ./src/hooks/pokemon/mutation.ts:
-  #   documents: ./graphql/mutations/pokemon.mutation.graphql
-  #   plugins:
-  #     - "typescript"
-  #     - "typescript-operations"
-  #     - "typescript-react-apollo"

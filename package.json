@@ -23,7 +23,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "graphql-faker": "graphql-faker ./graphql/schema/schema.graphql"
+    "graphql-faker": "graphql-faker ./graphql/schema/schema.graphql",
+    "generate": "graphql-codegen"
   },
   "eslintConfig": {
     "extends": "react-app"
