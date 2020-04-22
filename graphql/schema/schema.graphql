@@ -1,4 +1,5 @@
-scalar Date
+scalar Date @fake(type: pastDate, options: {dateFormat: "X"})
+
 
 interface Node {
   id: ID!
@@ -21,28 +22,29 @@ interface Edge {
 }
 
 type PageInfo {
-  hasNextPage: Boolean!
-  hasPreviousPage: Boolean!
-  startCursor: String
-  endCursor: String
+  hasNextPage: Boolean! 
+  hasPreviousPage: Boolean! 
+  startCursor: String @fake(type:uuid)
+  endCursor: String @fake(type: uuid)
 }
 
 type User implements Node {
-  id: ID!
-  name: String!
-  age: Int!
-  birthday: Date!
-  gender: Gender!
+  id: ID! @fake(type:uuid)
+  name: String! @fake(type:lastName, locale: ja)
+  age: Int! @fake(type:number)
+  birthday: Date! 
+  gender: Gender! @examples(values: ["MAN", "WOMEN", "UNKNOWN"])
+  email: String! @fake(type:email)
 }
 
 type UserConnection implements Connection {
-  edges: [UserEdge!]!
+  edges: [UserEdge!]! @listLength(min: 10, max: 10)
   pageInfo: PageInfo!
 }
 
 type UserEdge implements Edge {
   node: User!
-  cursor: String!
+  cursor: String! @fake(type: uuid)
 }
 
 enum Gender {

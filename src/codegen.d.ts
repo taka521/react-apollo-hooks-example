@@ -68,6 +68,7 @@ type IUser = INode & {
   readonly age: Scalars['Int'],
   readonly birthday: Scalars['Date'],
   readonly gender: IGender,
+  readonly email: Scalars['String'],
 };
 
 type IUserConnection = IConnection & {
