@@ -1,0 +1,6 @@
+export type ErrorCode =
+  | 'INTERNAL_SERVER_ERROR'
+  | 'GRAPHQL_INVALID_ERROR'
+  | 'UNAUTHENTICATED'
+  | 'BAD_USER_ERROR'
+  ;
