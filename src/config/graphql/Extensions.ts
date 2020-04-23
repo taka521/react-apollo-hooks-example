@@ -5,15 +5,15 @@ export type ExtensionsType = {
   code: ErrorCode;
 } & GraphQLError["extensions"];
 
-export type BadInputErrorExtensions = {
+export interface BadInputErrorExtensions extends ExtensionsType {
   code: "BAD_USER_ERROR";
   attribute: string[];
-};
+}
 
-export type UnauthenticatedExtensions = {
+export interface UnauthenticatedExtensions extends ExtensionsType {
   code: "UNAUTHENTICATED";
   reason: "Expired" | "Freezing" | "NotExist";
-};
+}
 
 export type Extensions =
   | BadInputErrorExtensions
